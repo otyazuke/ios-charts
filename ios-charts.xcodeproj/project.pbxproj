@@ -13,6 +13,8 @@
 		86B549361DEEDA8200D3FB94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B549341DEEDA8200D3FB94 /* Main.storyboard */; };
 		86B549381DEEDA8200D3FB94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86B549371DEEDA8200D3FB94 /* Assets.xcassets */; };
 		86B5493B1DEEDA8200D3FB94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B549391DEEDA8200D3FB94 /* LaunchScreen.storyboard */; };
+		86D5BD851DF456A5000646DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D5BD841DF456A5000646DA /* LoginViewController.swift */; };
+		86D5BD871DF45839000646DA /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D5BD861DF45839000646DA /* TwitterAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		86B549371DEEDA8200D3FB94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86B5493A1DEEDA8200D3FB94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86B5493C1DEEDA8200D3FB94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86D5BD841DF456A5000646DA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		86D5BD861DF45839000646DA /* TwitterAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterAPI.swift; sourceTree = "<group>"; };
 		86F3EAD80FE5C2D1E3756958 /* Pods-ios-charts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-charts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-charts/Pods-ios-charts.debug.xcconfig"; sourceTree = "<group>"; };
 		BFFC6536600E9E8D435BE210 /* Pods_ios_charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -67,6 +71,8 @@
 				86B549371DEEDA8200D3FB94 /* Assets.xcassets */,
 				86B549391DEEDA8200D3FB94 /* LaunchScreen.storyboard */,
 				86B5493C1DEEDA8200D3FB94 /* Info.plist */,
+				86D5BD841DF456A5000646DA /* LoginViewController.swift */,
+				86D5BD861DF45839000646DA /* TwitterAPI.swift */,
 			);
 			path = "ios-charts";
 			sourceTree = "<group>";
@@ -124,7 +130,7 @@
 				TargetAttributes = {
 					86B5492C1DEEDA8200D3FB94 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = A8K98NAY9U;
+						DevelopmentTeam = 49SK9NN282;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -226,6 +232,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86D5BD871DF45839000646DA /* TwitterAPI.swift in Sources */,
+				86D5BD851DF456A5000646DA /* LoginViewController.swift in Sources */,
 				86B549331DEEDA8200D3FB94 /* ViewController.swift in Sources */,
 				86B549311DEEDA8200D3FB94 /* AppDelegate.swift in Sources */,
 			);
@@ -349,7 +357,8 @@
 			baseConfigurationReference = 86F3EAD80FE5C2D1E3756958 /* Pods-ios-charts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A8K98NAY9U;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 49SK9NN282;
 				INFOPLIST_FILE = "ios-charts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.takuya.ios-charts";
@@ -363,7 +372,8 @@
 			baseConfigurationReference = 7CA402530FE026DCDE9FC587 /* Pods-ios-charts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A8K98NAY9U;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 49SK9NN282;
 				INFOPLIST_FILE = "ios-charts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.takuya.ios-charts";
