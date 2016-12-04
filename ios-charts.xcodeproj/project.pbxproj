@@ -124,6 +124,7 @@
 				TargetAttributes = {
 					86B5492C1DEEDA8200D3FB94 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = A8K98NAY9U;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -348,6 +349,7 @@
 			baseConfigurationReference = 86F3EAD80FE5C2D1E3756958 /* Pods-ios-charts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A8K98NAY9U;
 				INFOPLIST_FILE = "ios-charts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.takuya.ios-charts";
@@ -361,6 +363,7 @@
 			baseConfigurationReference = 7CA402530FE026DCDE9FC587 /* Pods-ios-charts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A8K98NAY9U;
 				INFOPLIST_FILE = "ios-charts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.takuya.ios-charts";
