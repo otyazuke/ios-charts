@@ -15,10 +15,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var graphView: BarChartView!
     var manths: [String]!
+    var xData: [Double] = [1,2,3,4,5,6,7,8,9,10,11,12]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        let counter: Int! = TwitterAPI.getTweets(user: userId!, keyWord: "やばい")
+        print("viewController value")
+        print(counter)
         manths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
         let unitsSlid = [50.3, 68.3, 113.3, 115.7, 160.8, 214.0, 220.4, 132.1, 176.2, 120.9, 71.3, 48.0]
         
@@ -28,6 +32,7 @@ class ViewController: UIViewController {
         graphView.drawBarShadowEnabled = false
         graphView.drawBordersEnabled = false
         graphView.chartDescription?.text = "テストグラフ"
+        graphView.xAxis.labelPosition = .bottom
         
         setChart(dataPoints: manths, values: unitsSlid)
     }
@@ -43,7 +48,7 @@ class ViewController: UIViewController {
         var dataEntries: [BarChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
+            let dataEntry = BarChartDataEntry(x: xData[i], yValues: [values[i]], label: dataPoints[i])
             dataEntries.append(dataEntry)
         }
         
