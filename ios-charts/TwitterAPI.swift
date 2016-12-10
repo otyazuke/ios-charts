@@ -10,15 +10,19 @@ import Foundation
 import TwitterKit
 
 class TwitterAPI {
-    
 
     class func getTweets(user: String, keyWord: String) -> Int{
-        var tweetCount: Int! = 0
+        var tweetCount: Int!
+        if tweetCount == nil {
+            tweetCount = 0
+        }
         let params = [
             "q": "\(keyWord)",
             "lang": "ja",
-            "from": "@K_blooossom"
+            "count": "100"
             ]
+        
+        let semaphore:DispatchSemaphore = DispatchSemaphore(value: 0)
         let client = TWTRAPIClient(userID: user)
         var clientError: NSError?
         let endpoint = "https://api.twitter.com/1.1/search/tweets.json"
@@ -29,20 +33,20 @@ class TwitterAPI {
                 if err == nil {
                     var jsonError: NSError?
                     let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String:AnyObject]
-                    let metaData = json["search_metadata"]
-                    tweetCount = metaData?["count"]! as! Int
-                    print("in if value")
-                    print(tweetCount)
-//                    if let jsonArray = json as? NSArray {
-//                        tweets(TWTRTweet.tweets(withJSONArray: jsonArray as! [Any]) as! [TWTRTweet])
-//                    }else{
-//                        error(err as! NSError)
-//                    }
+                    
+                    let tweets = TWTRTweet.tweets(withJSONArray: json["statuses"] as! [Any]?)
+                    print("@@@@@@@")
+                    print(tweets)
+                    tweetCount = tweets.count
                 }else{
                     print("request error: \(err)")
                 }
+                semaphore.signal()
             })
         }
+        print("wait")
+        semaphore.wait()
+        
         print("return value")
         print(tweetCount)
         return tweetCount

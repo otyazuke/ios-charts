@@ -12,6 +12,7 @@ import Charts
 class ViewController: UIViewController {
     
     var userId: String? = nil
+    var tweetCount: [Int] = []
     
     @IBOutlet weak var graphView: BarChartView!
     var manths: [String]!
@@ -20,11 +21,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let counter: Int! = TwitterAPI.getTweets(user: userId!, keyWord: "やばい")
+        var tweetLabel: [String] = ["やばい","じゃないか説","わろ"]
+        
+        for i in 0..<tweetLabel.count {
+            print(tweetLabel[i])
+            tweetCount.append(TwitterAPI.getTweets(user: userId!, keyWord: tweetLabel[i]))
+        }
         print("viewController value")
-        print(counter)
-        manths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-        let unitsSlid = [50.3, 68.3, 113.3, 115.7, 160.8, 214.0, 220.4, 132.1, 176.2, 120.9, 71.3, 48.0]
         
         graphView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         graphView.animate(yAxisDuration: 2.0)
@@ -34,7 +37,7 @@ class ViewController: UIViewController {
         graphView.chartDescription?.text = "テストグラフ"
         graphView.xAxis.labelPosition = .bottom
         
-        setChart(dataPoints: manths, values: unitsSlid)
+        setChart(dataPoints: tweetLabel, values: tweetCount)
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,17 +45,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChart(dataPoints: [String], values: [Int]) {
         graphView.noDataText = "You need to provide data for the chart"
         
         var dataEntries: [BarChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: xData[i], yValues: [values[i]], label: dataPoints[i])
+            let dataEntry = BarChartDataEntry(x: xData[i], yValues: [Double(values[i])], label: dataPoints[i])
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "降水量")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "ツイート数")
         let chartData = BarChartData(dataSet: chartDataSet)
         graphView.data = chartData
     }
