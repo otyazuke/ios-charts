@@ -16,15 +16,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var graphView: BarChartView!
     var manths: [String]!
-    var xData: [Double] = [1,2,3,4,5,6,7,8,9,10,11,12]
+    var xData: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var tweetLabel: [String] = ["やばい","じゃないか説","わろ"]
-        
+        var tweetLabel: [String] = ["やばい","じゃないか説","わろ","え"]
+
         for i in 0..<tweetLabel.count {
             print(tweetLabel[i])
+            xData.append(Double(i+1))
             tweetCount.append(TwitterAPI.getTweets(user: userId!, keyWord: tweetLabel[i]))
         }
         print("viewController value")

@@ -17,11 +17,9 @@ class TwitterAPI {
             tweetCount = 0
         }
         let params = [
-            "q": "\(keyWord)",
-            "lang": "ja",
+            "q": "\(keyWord) from:@K_blooossom",
             "count": "100"
             ]
-        
         let semaphore:DispatchSemaphore = DispatchSemaphore(value: 0)
         let client = TWTRAPIClient(userID: user)
         var clientError: NSError?
@@ -35,18 +33,17 @@ class TwitterAPI {
                     let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String:AnyObject]
                     
                     let tweets = TWTRTweet.tweets(withJSONArray: json["statuses"] as! [Any]?)
-                    print("@@@@@@@")
+                    print("--------------")
+                    print(json["search_metadata"])
                     print(tweets)
                     tweetCount = tweets.count
                 }else{
                     print("request error: \(err)")
                 }
                 semaphore.signal()
-            })
+            }).resume()
+            semaphore.wait()
         }
-        print("wait")
-        semaphore.wait()
-        
         print("return value")
         print(tweetCount)
         return tweetCount

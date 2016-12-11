@@ -38,7 +38,7 @@
                         <viewControllerLayoutGuide type="top" id="jbN-mZ-Hxr"/>
                         <viewControllerLayoutGuide type="bottom" id="Ngb-1A-PBe"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fIX-TD-Ha3">
+                    <view key="view" contentMode="scaleToFill" id="fIX-TD-Ha3" customClass="BarChartView" customModule="Charts">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
